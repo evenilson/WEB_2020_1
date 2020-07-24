@@ -1,15 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './index.css';
+import App from './App';
 
-import NomeCursoCity from './components/questao1/NomeCursoCity'
-import NomeCursoCityClass from './components/questao2/NomeCursoCityClass'
 
-//Questao1
-/*
-const root = document.getElementById('root');
-ReactDOM.render(<NomeCursoCity/>,root);
-*/
+ReactDOM.render(
+    <App />,
+  document.getElementById('root')
+);
+  
 
-//Questão2
-const root = document.getElementById('root');
-ReactDOM.render(<NomeCursoCityClass/>,root);
+
