@@ -36,7 +36,7 @@ function App() {
                 <NomeCursoCityClassPai nome = 'Liandro' curso = 'SI' city = 'Caninde'/>
               </NomeCursoCityClassFilho>
             </div>
-            
+
 
           </div>
         </div>
