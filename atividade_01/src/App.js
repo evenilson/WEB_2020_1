@@ -27,7 +27,7 @@ function App() {
         </NomeCursoCityFilho>
 
         <div className=" PaddingButton ">
-          <div className="card" Style="margin: 0 250px 0 250px;">
+          <div className="card" Style="margin: 0 250px 0 251px;">
             <div className="card-header">
               questao4e5
             </div>
