@@ -1,8 +1,6 @@
 import React from 'react'
 import { URL_HERO, URL_ENEMY } from '../../constants'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 function Hero(props){
     return(
         <div>
