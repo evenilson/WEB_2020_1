@@ -7,9 +7,7 @@ export default class Create extends Component{
 
     constructor(props){
         super(props)
-        this.state = {nome:''}
-        this.state = {curso:''}
-        this.state = {capacidade:''}
+        this.state = {nome:'', curso:'',capacidade:''}
 
         this.setNome = this.setNome.bind(this)
         this.setCurso = this.setCurso.bind(this)
@@ -32,10 +30,11 @@ export default class Create extends Component{
 
         const novaDisciplina = {nome:this.state.nome, curso: this.state.curso, capacidade: this.state.capacidade}
 
-        axios.post('http://localhost:3001/disciplinas', novaDisciplina)
+        //axios.post('http://localhost:3001/disciplinas', novaDisciplina) //JSON-SERVER
+        axios.post('http://localhost:3002/disciplinas/register', novaDisciplina) //EXPRESS-API
         .then(
             (res) =>{
-                console.log(res.data.id)
+                console.log(res.data._id)
             }
         )
         .catch(

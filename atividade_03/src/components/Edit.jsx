@@ -6,9 +6,7 @@ export default class List extends Component{
 
     constructor(props){
         super(props)
-        this.state = {nome:''}
-        this.state = {curso:''}
-        this.state = {capacidade:''}
+        this.state = {nome:'', curso:'', capacidade:''}
 
         this.setNome = this.setNome.bind(this)
         this.setCurso = this.setCurso.bind(this)
@@ -27,7 +25,8 @@ export default class List extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://localhost:3001/disciplinas/'+this.props.match.params.id)
+        //axios.get('http://localhost:3001/disciplinas/'+this.props.match.params.id) JSON-SERVER
+        axios.get('http://localhost:3002/disciplinas/retrieve/'+this.props.match.params.id) //EXPRESS-API
         .then((res) =>{
             this.setState({
                 nome: res.data.nome,
@@ -43,7 +42,8 @@ export default class List extends Component{
 
         const DisciplinaEditada = {nome:this.state.nome, curso: this.state.curso, capacidade: this.state.capacidade}
 
-        axios.put('http://localhost:3001/disciplinas/'+this.props.match.params.id, DisciplinaEditada)
+        //axios.put('http://localhost:3001/disciplinas/'+this.props.match.params.id, DisciplinaEditada) //JSON-SERVER
+        axios.put('http://localhost:3002/disciplinas/update/'+this.props.match.params.id, DisciplinaEditada) //EXPRESS-API
         .then(
             (res) =>{
                 this.props.history.push('/list');
