@@ -1,0 +1,16 @@
+{
+  "disciplinas": [
+    {
+      "id": 2,
+      "nome": "Lógica para computação",
+      "curso": "Sistemas de Informação",
+      "capacidade": "45"
+    },
+    {
+      "nome": "Requisitos de Software",
+      "curso": "Sistemas de Informação",
+      "capacidade": "47",
+      "id": 3
+    }
+  ]
+}
