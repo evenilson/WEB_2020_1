@@ -4,12 +4,26 @@ import React, { Component} from 'react'
 import FirebaseContext from '../utils/FirebaseContext'
 import FirebaseService from '../services/FirebaseService'
 
+import {useFormik} from 'formik'
+
 const CreatePage = () => (
     <FirebaseContext.Consumer>
         {
             contexto => <Create firebase={contexto}/>
         }
     </FirebaseContext.Consumer>
+)
+
+const formik = useFormik(
+    {
+        initialValues:{
+            nome:''
+
+        },
+        onSubmit: values => {
+            console.log(values.nome)
+        }
+    }
 )
 
 class Create extends Component{
@@ -58,25 +72,45 @@ class Create extends Component{
         this.setState({nome:'', curso:'', capacidade:''})
     }
 
+   
+
+
+
+
     render(){
         return(
             <div style={{marginTop:10}}>
                 <h3>Criar Disciplina</h3>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit, formik.handleSubmit}>
                     <div className='form-goup'>
                         <label>Nome: </label>
-                        <input type="text" className='form-control' value={this.state.nome} onChange={this.setNome}/>
+                        <input 
+                            type="text" 
+                            className='form-control' 
+                            value={this.state.nome} 
+                            onChange={this.setNome, formik.handleChange}/>
                     </div>
                     <div className='form-goup'>
                         <label>Curso: </label>
-                        <input type="text" className='form-control' value={this.state.curso} onChange={this.setCurso}/>
+                        <input 
+                            type="text" 
+                            className='form-control' 
+                            value={this.state.curso} 
+                            onChange={this.setCurso}/>
                     </div>
                     <div className='form-goup'>
                         <label>Capacidade: </label>
-                        <input type="text" className='form-control' value={this.state.capacidade} onChange={this.setCapacidade}/>
+                        <input 
+                            type="text" 
+                            className='form-control' 
+                            value={this.state.capacidade} 
+                            onChange={this.setCapacidade}/>
                     </div>
                     <div className='form-goup'>
-                        <input type="submit" value='Criar' className='btn btn-primary'/>
+                        <input 
+                            type="submit" 
+                            value='Criar' 
+                            className='btn btn-primary'/>
                     </div>
                 </form>
             </div>
